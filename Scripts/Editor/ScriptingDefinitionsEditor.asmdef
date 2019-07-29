@@ -1,0 +1,17 @@
+{
+    "name": "ScriptingDefinitionsEditor",
+    "references": [
+        "GUID:f6f8955f0a7f54b45a4e4def52c102b0"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
