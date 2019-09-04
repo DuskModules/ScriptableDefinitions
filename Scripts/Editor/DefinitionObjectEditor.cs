@@ -16,6 +16,11 @@ namespace DuskModules.ScriptingDefinitions.DuskEditor {
 
 			EditorGUILayout.HelpBox("When a Definition Object is imported into a Unity Project, it adds it's own name as a Scripting Definition Symbol. " +
 				"When it's removed, it removes the symbol.", MessageType.Info);
+
+			if (GUILayout.Button("Update")) {
+				DefinitionProcessor.UpdateDefinitions();
+			}
+
 		}
 	}
 }

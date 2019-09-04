@@ -50,7 +50,7 @@ namespace DuskModules.ScriptingDefinitions.DuskEditor {
 			for (int i = 0; i < defObjects.Count; i++) {
 
 				// Convert name into something legit
-				string defName = defObjects[i].name.ToUpper(); ;
+				string defName = defObjects[i].name.ToUpper();
 				char[] chars = defName.ToCharArray();
 				for (int c = 0; c < chars.Length; c++) {
 					if (!IsAllowedCharacter(chars[c])) {
