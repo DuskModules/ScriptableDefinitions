@@ -45,6 +45,9 @@ namespace DuskModules.ScriptingDefinitions.DuskEditor {
 			string definitions = EditorPrefs.GetString(prefsKey, "");
 			List<string> savedDefs = new List<string>(definitions.Split(';'));
 
+			List<string> addDefs = new List<string>();
+			List<string> removeDefs = new List<string>();
+
 			// Handle those that exist. Added to new save file and define utility.
 			string newSave = "";
 			for (int i = 0; i < defObjects.Count; i++) {
@@ -62,7 +65,7 @@ namespace DuskModules.ScriptingDefinitions.DuskEditor {
 				defObjects[i].name = defName;
 
 				// Add define symbol
-				DefineUtility.AddDefineSymbol(defName);
+				addDefs.Add(defName);
 
 				// Save, but no duplicates
 				if (!newSave.Contains(defName)) {
@@ -79,9 +82,11 @@ namespace DuskModules.ScriptingDefinitions.DuskEditor {
 			// Handle all those saved, which are no longer in the assets. They are gone.
 			for (int i = 0; i < savedDefs.Count; i++) {
 				if (savedDefs[i] != "") {
-					DefineUtility.RemoveDefineSymbol(savedDefs[i]);
+					removeDefs.Add(savedDefs[i]);
 				}
 			}
+
+			DefineUtility.ModifyDefineSymbols(addDefs, removeDefs);
 			
 			EditorPrefs.SetString(prefsKey, newSave);
 		}
