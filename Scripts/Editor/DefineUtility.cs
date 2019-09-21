@@ -45,14 +45,11 @@ namespace DuskModules.ScriptingDefinitions {
 		/// <summary> Adds a symbol to the scripting define symbols for all build target groups. </summary>
 		/// <param name="symbol"> The symbol to add </param>
 		public static bool AddDefineSymbol(string symbol) {
-			EditorUtility.DisplayProgressBar("Adding Define Symbol", "Starting", 0);
 			bool change = false;
 			for (int i = 0; i < buildTargetGroupCount; i++) {
-				EditorUtility.DisplayProgressBar("Adding Define Symbol", GetBuildTargetGroup(i).ToString(), (float)i / (float)buildTargetGroupCount);
 				if (AddDefineSymbol(symbol, GetBuildTargetGroup(i)))
 					change = true;
 			}
-			EditorUtility.ClearProgressBar();
 			return change;
 		}
 		/// <summary> Adds a symbol to the scripting define symbols for the build target groups. </summary>
@@ -76,14 +73,11 @@ namespace DuskModules.ScriptingDefinitions {
 		/// <summary> Removes a symbol to the scripting define symbols for all build target groups. </summary>
 		/// <param name="symbol"> The symbol to remove </param>
 		public static bool RemoveDefineSymbol(string symbol) {
-			EditorUtility.DisplayProgressBar("Removing Define Symbol", "Starting", 0);
 			bool change = false;
 			for (int i = 0; i < buildTargetGroupCount; i++) {
-				EditorUtility.DisplayProgressBar("Removing Define Symbol", GetBuildTargetGroup(i).ToString(), (float)i / (float)buildTargetGroupCount);
 				if (RemoveDefineSymbol(symbol, GetBuildTargetGroup(i)))
 					change = true;
 			}
-			EditorUtility.ClearProgressBar();
 			return change;
 		}
 		/// <summary> Removes a symbol to the scripting define symbols for the build target groups. </summary>
@@ -108,15 +102,11 @@ namespace DuskModules.ScriptingDefinitions {
 		/// <param name="add"> Symbols to add </param>
 		/// <param name="remove"> Symbols to remove </param>
 		public static bool ModifyDefineSymbols(List<string> add, List<string> remove) {
-			EditorUtility.DisplayProgressBar("Modifying Define Symbols", "Starting", 0);
-
 			bool change = false;
 			for (int i = 0; i < buildTargetGroupCount; i++) {
-				EditorUtility.DisplayProgressBar("Modifying Define Symbols", GetBuildTargetGroup(i).ToString(), (float)i / (float)buildTargetGroupCount);
 				if (ModifyDefineSymbols(add, remove, GetBuildTargetGroup(i)))
 					change = true;
 			}
-			EditorUtility.ClearProgressBar();
 			return change;
 		}
 
